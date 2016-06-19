@@ -1,6 +1,6 @@
 Node script to automatically cut pdf salaries for every employee
 
-Requirements :
+Requirements (comes from https://github.com/nisaacson/pdf-extract):
 
 pdftk => apt-get install pdftk
 
