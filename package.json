@@ -1,0 +1,15 @@
+{
+  "name": "mics-salaires",
+  "version": "1.0.0",
+  "description": "Automatic Pdf cutter for mediarithmics salaries",
+  "main": "mics_salary_cutter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pdf-extract": "^1.0.9",
+    "pdf-merge": "0.0.4"
+  }
+}
