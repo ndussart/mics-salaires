@@ -50,7 +50,10 @@ processor.on('complete', function(data) {
           pages.push(data.single_page_pdf_file_paths[pageCount - 1 - i])
         }
         let pdfMerge = new PDFMerge(pages)
-        let fileName = `${date}-${employeeName}.pdf`.replace(/\s/g,"_").replace(/\//g,"-")
+        let dateSplit = date.split("/")
+        let month = dateSplit[1]
+        let year = dateSplit[2]
+        let fileName = `${year}-${month}-${employeeName}.pdf`.replace(/\s/g,"_").replace(/\//g,"-")
         pdfMerge.asNewFile(fileName).merge(function(error, filePath) {
           if (error){
             console.log("Cannot create pdf file");
