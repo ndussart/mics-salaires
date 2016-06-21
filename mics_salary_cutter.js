@@ -26,16 +26,22 @@ processor.on('complete', function(data) {
     let pageNumbers = page.match(/Page.([\d]+).\/.([\d]+)/)
     let employee = page.match(/collective.:([\s\S]+)Emploi.:/)
     let dates = page.match(/Période.du.:.([\d]+\/[\d]+\/[\d]+)/)
-    if (!pageNumbers || !employee || !dates || employee.length !== 2 || pageNumbers.length !== 3 || dates.length !== 2){
+    if (!employee || !dates || employee.length !== 2 || dates.length !== 2){
       console.log("Something is wrong with regexps")
-      console.log(`pageNumbers = ${pageNumbers}`);
       console.log(`employee = ${employee}`);
       console.log(`dates = ${dates}`);
       process.exit(1);
     }else{
       let employeeName = employee[1].replace(/\n/g,"").trim()
-      let pageNumber = pageNumbers[1]
-      let totalPage = pageNumbers[2]
+      let pageNumber = 1
+      if (pageNumbers){
+        pageNumber = pageNumbers[1]
+      }
+      let totalPage = 1
+      if (pageNumbers){
+        totalPage = pageNumbers[2]
+      }
+
       let date = dates[1]
 
       if (pageNumber === totalPage){
